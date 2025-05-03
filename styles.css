@@ -1,0 +1,332 @@
+/* 全局样式设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 苹果风格配色 */
+    --apple-blue: #007aff;
+    --apple-light-blue: #5ac8fa;
+    --apple-dark-blue: #0055b3;
+    --apple-gray: #8e8e93;
+    --apple-light-gray: #f2f2f7;
+    --apple-dark-gray: #3a3a3c;
+    --apple-red: #ff3b30;
+    --apple-green: #34c759;
+    
+    /* 阴影 */
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --button-shadow: 0 2px 10px rgba(0, 122, 255, 0.2);
+    
+    /* 圆角 */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #ffffff;
+    color: var(--apple-dark-gray);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 标题区域 */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #000;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--apple-gray);
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* 上传区域 */
+.upload-area {
+    margin-bottom: 2rem;
+}
+
+.upload-container {
+    background-color: var(--apple-light-gray);
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    text-align: center;
+    border: 2px dashed #e5e5ea;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-container:hover {
+    border-color: var(--apple-blue);
+    background-color: rgba(0, 122, 255, 0.03);
+}
+
+.upload-container img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.upload-container p {
+    margin-bottom: 1rem;
+    color: var(--apple-gray);
+}
+
+.upload-button {
+    display: inline-block;
+    background-color: var(--apple-blue);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: var(--button-shadow);
+}
+
+.upload-button:hover {
+    background-color: var(--apple-dark-blue);
+    transform: translateY(-2px);
+}
+
+.supported-formats {
+    font-size: 0.8rem;
+    margin-top: 1.5rem;
+    opacity: 0.7;
+}
+
+/* 压缩控制区域 */
+.compression-control-area {
+    display: none; /* 初始隐藏，上传图片后显示 */
+    margin-bottom: 2rem;
+}
+
+.quality-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.quality-control p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--apple-dark-gray);
+}
+
+.slider-container {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--apple-light-gray);
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--apple-blue);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.compress-button {
+    background-color: var(--apple-blue);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--button-shadow);
+    width: 100%;
+}
+
+.compress-button:hover {
+    background-color: var(--apple-dark-blue);
+    transform: translateY(-2px);
+}
+
+/* 预览比较区域 */
+.comparison-area {
+    display: none; /* 初始隐藏，上传图片后显示 */
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.comparison-side {
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.comparison-side h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.image-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 1rem;
+    background-color: var(--apple-light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.image-info {
+    font-size: 0.9rem;
+    color: var(--apple-gray);
+}
+
+.image-info p {
+    margin-bottom: 0.3rem;
+}
+
+.image-info span {
+    font-weight: 500;
+    color: var(--apple-dark-gray);
+}
+
+/* 底部操作区域 */
+.action-area {
+    display: none; /* 初始隐藏，压缩图片后显示 */
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.download-button {
+    background-color: var(--apple-green);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 10px rgba(52, 199, 89, 0.2);
+}
+
+.download-button:hover:not(:disabled) {
+    background-color: #2aa547;
+    transform: translateY(-2px);
+}
+
+.download-button:disabled {
+    background-color: var(--apple-light-gray);
+    color: var(--apple-gray);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.reset-button {
+    background-color: transparent;
+    color: var(--apple-blue);
+    border: 1px solid var(--apple-blue);
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+    background-color: rgba(0, 122, 255, 0.05);
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+    color: var(--apple-gray);
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .comparison-area {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .action-area {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .download-button, .reset-button {
+        width: 100%;
+    }
+}
+
+/* 拖拽状态 */
+.dragging {
+    border-color: var(--apple-blue);
+    background-color: rgba(0, 122, 255, 0.05);
+    transform: scale(1.01);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+} 

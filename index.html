@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具 - 简洁高效的在线图片压缩</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部区域 -->
+        <header>
+            <h1>图片压缩工具</h1>
+            <p>简单高效地压缩您的图片，保持完美视觉效果的同时减小文件大小</p>
+        </header>
+
+        <!-- 上传区域 -->
+        <section class="upload-area" id="uploadArea">
+            <div class="upload-container" id="dropZone">
+                <img src="assets/upload-icon.svg" alt="上传图标" id="uploadIcon">
+                <p>拖放图片到此处，或</p>
+                <label for="fileInput" class="upload-button">选择图片</label>
+                <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg" hidden>
+                <p class="supported-formats">支持的格式: PNG, JPG</p>
+            </div>
+        </section>
+
+        <!-- 压缩控制区域 -->
+        <section class="compression-control-area" id="compressionControlArea">
+            <div class="quality-control">
+                <p>压缩质量: <span id="qualityValue">80%</span></p>
+                <div class="slider-container">
+                    <input type="range" id="qualitySlider" min="1" max="100" value="80">
+                </div>
+                <button id="compressButton" class="compress-button">压缩图片</button>
+            </div>
+        </section>
+
+        <!-- 预览与比较区域 -->
+        <section class="comparison-area" id="comparisonArea">
+            <!-- 左侧：原图 -->
+            <div class="comparison-side original">
+                <h3>原图</h3>
+                <div class="image-container">
+                    <img id="originalImage" src="" alt="原图预览">
+                </div>
+                <div class="image-info">
+                    <p>尺寸: <span id="originalSize">-</span></p>
+                    <p>大小: <span id="originalFileSize">-</span></p>
+                </div>
+            </div>
+
+            <!-- 右侧：压缩后 -->
+            <div class="comparison-side compressed">
+                <h3>压缩后</h3>
+                <div class="image-container">
+                    <img id="compressedImage" src="" alt="压缩后预览">
+                </div>
+                <div class="image-info">
+                    <p>尺寸: <span id="compressedSize">-</span></p>
+                    <p>大小: <span id="compressedFileSize">-</span></p>
+                    <p>节省: <span id="savedSize">-</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部操作区域 -->
+        <section class="action-area" id="actionArea">
+            <button id="downloadButton" class="download-button" disabled>下载压缩图片</button>
+            <button id="resetButton" class="reset-button">重置</button>
+        </section>
+
+        <!-- 制作者信息 -->
+        <footer>
+            <p>优雅设计 · 高效压缩</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
